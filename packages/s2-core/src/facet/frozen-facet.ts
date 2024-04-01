@@ -639,9 +639,9 @@ export abstract class FrozenFacet extends BaseFacet {
   }
 
   public render(): void {
-    this.calculateFrozenGroupInfo();
+    this.calculateFrozenGroupInfo(); // 计算冻结分组的数据信息
     super.render();
-    this.initFrozenGroupPosition();
+    this.initFrozenGroupPosition(); // 初始化冻结分组
   }
 
   private getFrozenOptionsDirectly(): S2TableSheetOptions {

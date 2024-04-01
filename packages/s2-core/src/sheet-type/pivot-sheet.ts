@@ -111,14 +111,14 @@ export class PivotSheet extends SpreadSheet {
       meta,
       spreadsheet: this,
       dataSet: this.dataSet,
-      dataCell: dataCell ?? defaultCell,
+      dataCell: dataCell ?? defaultCell, // 单元格自定义配置 or 默认配置
     };
   }
 
   protected buildFacet() {
-    const facetCfg = this.getFacetCfgFromDataSetAndOptions();
+    const facetCfg = this.getFacetCfgFromDataSetAndOptions(); // 根据配置和数据生成分组展示的数据
     this.facet?.destroy();
-    this.facet = new PivotFacet(facetCfg);
+    this.facet = new PivotFacet(facetCfg); // 会初始化元素的盒模型（宽高、坐标等）、绑定事件
     this.facet.render();
   }
 

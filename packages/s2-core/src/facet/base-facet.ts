@@ -261,11 +261,11 @@ export abstract class BaseFacet {
       return;
     }
 
-    this.adjustScrollOffset();
-    this.renderHeaders();
-    this.renderScrollBars();
-    this.renderBackground();
-    this.dynamicRenderCell();
+    this.adjustScrollOffset(); // 调整滚动条位置
+    this.renderHeaders(); // 渲染表头
+    this.renderScrollBars(); // 渲染滚动条
+    this.renderBackground(); // 渲染背景布局
+    this.dynamicRenderCell(); // 动态渲染，如滚动时的表单显示和事件
   }
 
   /**
@@ -1175,8 +1175,8 @@ export abstract class BaseFacet {
     });
 
     // all cell's width&height
-    this.calculateCellWidthHeight();
-    this.calculateCornerBBox();
+    this.calculateCellWidthHeight(); // 宽高
+    this.calculateCornerBBox(); // 盒模型数据
     this.calculatePanelBBox();
     this.clipPanelGroup();
     this.bindEvents();

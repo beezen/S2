@@ -1,0 +1,57 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "firstread",
+  "steps": [
+    {
+      "file": "packages/s2-core/src/sheet-type/spread-sheet.ts",
+      "description": "构造函数，初始化渲染表格的参数、配置",
+      "line": 143
+    },
+    {
+      "file": "packages/s2-core/src/sheet-type/spread-sheet.ts",
+      "description": "执行渲染逻辑",
+      "line": 411
+    },
+    {
+      "file": "packages/s2-core/src/sheet-type/spread-sheet.ts",
+      "description": "核心渲染逻辑，执行各个模块的内容渲染",
+      "line": 427
+    },
+    {
+      "file": "packages/s2-core/src/sheet-type/pivot-sheet.ts",
+      "description": "根据全局配置和参数，实例化数据透视表",
+      "line": 121
+    },
+    {
+      "file": "packages/s2-core/src/facet/frozen-facet.ts",
+      "description": "facet 构造函数",
+      "line": 66
+    },
+    {
+      "file": "packages/s2-core/src/facet/base-facet.ts",
+      "description": "初始化 base facet ",
+      "line": 153
+    },
+    {
+      "file": "packages/s2-core/src/facet/base-facet.ts",
+      "description": "初始化时，会计算表的盒模型（宽高、坐标），以及绑定基本事件",
+      "line": 1178
+    },
+    {
+      "file": "packages/s2-core/src/sheet-type/pivot-sheet.ts",
+      "description": "执行核心模块的渲染逻辑",
+      "line": 122
+    },
+    {
+      "file": "packages/s2-core/src/facet/frozen-facet.ts",
+      "description": "执行 frozen facet 的渲染逻辑",
+      "line": 641
+    },
+    {
+      "file": "packages/s2-core/src/facet/base-facet.ts",
+      "description": "主要逻辑：\n1、调整滚动条位置\n2、渲染表头\n3、渲染滚动条\n4、渲染背景布局\n5、动态渲染，如滚动时的表单显示和事件",
+      "line": 260
+    }
+  ],
+  "ref": "feature-remark"
+}

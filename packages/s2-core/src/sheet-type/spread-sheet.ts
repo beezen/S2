@@ -141,24 +141,24 @@ export abstract class SpreadSheet extends EE {
   ): boolean => this.untypedEmit(event, ...args);
 
   public constructor(
-    dom: S2MountContainer,
-    dataCfg: S2DataConfig,
-    options: S2Options,
+    dom: S2MountContainer, // 元素真实节点
+    dataCfg: S2DataConfig, // 表格数据配置
+    options: S2Options, // 表格参数配置
   ) {
     super();
-    this.dataCfg = getSafetyDataConfig(dataCfg);
-    this.options = getSafetyOptions(options);
+    this.dataCfg = getSafetyDataConfig(dataCfg); // 优化数据结构，去重，空值
+    this.options = getSafetyOptions(options); // 获取参数配置，内置默认参数配置
     this.dataSet = this.getDataSet(this.options);
 
     this.setDebug();
-    this.initTooltip();
-    this.initGroups(dom);
-    this.bindEvents();
-    this.initInteraction();
-    this.initTheme();
-    this.initHdAdapter();
-    this.registerIcons();
-    this.setOverscrollBehavior();
+    this.initTooltip(); // 初始化 tooltip，如果存在自定义配置则优先取自定义配置
+    this.initGroups(dom); // 初始化组相关配置
+    this.bindEvents(); // 绑定相关事件，事件由各子表设计
+    this.initInteraction(); // 初始化所有的交互事件，点击、滚动、选择等。包含清理事件操作
+    this.initTheme(); // 初始化主题，获取传入配置和默认配置
+    this.initHdAdapter(); // 初始化精度适配器
+    this.registerIcons(); // 注册图标
+    this.setOverscrollBehavior(); // 设置滚动条行为
   }
 
   private setOverscrollBehavior() {
@@ -215,8 +215,8 @@ export abstract class SpreadSheet extends EE {
   }
 
   private initInteraction() {
-    this.interaction?.destroy?.();
-    this.interaction = new RootInteraction(this);
+    this.interaction?.destroy?.(); // 清理所有已有的交互事件
+    this.interaction = new RootInteraction(this); // 初始化所有交互事件，点击，滚动，选择，大小调整
   }
 
   private initTooltip() {
@@ -418,13 +418,13 @@ export abstract class SpreadSheet extends EE {
       options;
     this.emit(S2Event.LAYOUT_BEFORE_RENDER);
     if (reBuildDataSet) {
-      this.dataSet = this.getDataSet(this.options);
+      this.dataSet = this.getDataSet(this.options); // 重新获取数据集
     }
     if (reloadData) {
       this.clearDrillDownData('', true);
       this.dataSet.setDataCfg(this.dataCfg);
     }
-    this.buildFacet();
+    this.buildFacet(); // 各个部位内容渲染
     if (reBuildHiddenColumnsDetail) {
       this.initHiddenColumnsDetail();
     }
